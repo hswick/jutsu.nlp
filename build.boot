@@ -5,7 +5,8 @@
                   [adzerk/boot-test "1.2.0" :scope "test"]
                   [org.nd4j/nd4j-native "0.8.0" :scope "test"]
                   [org.deeplearning4j/deeplearning4j-nlp "0.8.0"]
-                  [org.datavec/datavec-api "0.8.0"]]
+                  [org.datavec/datavec-api "0.8.0"]
+                  [org.apache.lucene/lucene-snowball "3.0.3"]]
   :repositories (conj (get-env :repositories)
                       ["clojars" {:url "https://clojars.org/repo"
                                   :username (System/getenv "CLOJARS_USER")
