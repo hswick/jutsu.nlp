@@ -41,7 +41,7 @@
     (wait)
     (nightlight :port 4000)))
 
-(deftask testing [] (merge-env! :source-paths #{"test"}) identity)
+(deftask testing [] (merge-env! :source-paths #{"test" "data"}) identity)
 
 (deftask test-code
   []
