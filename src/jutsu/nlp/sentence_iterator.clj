@@ -1,4 +1,4 @@
-(ns dl4clj-nlp.sentence-iterator
+(ns jutsu.nlp.sentence-iterator
   (:require [jutsu.nlp.util :refer [absolute-path]])
   (:import [org.deeplearning4j.text.sentenceiterator
             BasicLineIterator

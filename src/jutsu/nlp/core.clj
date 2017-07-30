@@ -1,7 +1,8 @@
 (ns jutsu.nlp.core
   (:require [jutsu.nlp.sentence-iterator :refer :all]
             [jutsu.nlp.tokenization :refer :all]
-            [jutsu.nlp.util :refer :all])
+            [jutsu.nlp.util :refer :all]
+            [jutsu.matrix.core :as m])
   (:import [org.datavec.api.util ClassPathResource]
            [org.deeplearning4j.models.word2vec Word2Vec$Builder]
            [org.deeplearning4j.models.embeddings.loader WordVectorSerializer]
@@ -75,7 +76,7 @@
 (defn get-word-vector 
   "Returns a ND4J Array as the word vector"
   [w2v word]
-  (.getWordVector w2v word))
+  (.getWordVectorMatrix w2v word))
 
 (defn read-word-vectors [vectors-file]
   (WordVectorSerializer/loadTxtVectors vectors-file))
@@ -95,3 +96,11 @@
 (defn word-vectors [model]
   (.getSyn0 (.lookupTable model)))
 
+;;Doc2Vec
+(defn doc-2-vec [w2v document]
+  (let [sum (m/zeros 1 (m/jutsu-cols (word-vectors w2v)))]
+    (doseq [word (clojure.string/split document #" ")]
+      (let [word-vector (get-word-vector w2v word)]
+        (when (not (nil? word-vector))
+          (m/add! sum word-vector))))
+    sum))

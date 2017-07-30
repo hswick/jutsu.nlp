@@ -1,10 +1,9 @@
-(ns dl4clj-nlp.test
+(ns jutsu.nlp.test
   (:require [jutsu.nlp.core :as nlp]
             [jutsu.nlp.sentence-iterator :as iter]
             [jutsu.nlp.tokenization :as token]
             [jutsu.nlp.util :as util]
-            [clojure.test :refer :all]
-            [clojure.tools.logging :as log]))
+            [clojure.test :refer :all]))
 
 (def filepath (util/absolute-path "neuromancer.txt"))
 
@@ -87,3 +86,5 @@
 (deftest w2v6-test
   (w2v-test w2v6))
 
+(deftest doc-2-vec-test
+  (is (not (nil? (nlp/doc-2-vec w2v3 (slurp "data/neuromancer.txt"))))))
