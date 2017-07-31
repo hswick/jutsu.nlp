@@ -17,7 +17,7 @@
 (task-options!
   jar {:main 'jutsu.nlp.core
        :manifest {"Description" "jutsu.nlp is meant to do natural language processing tasks such as word embedding."}}
-  pom {:version "0.0.1"
+  pom {:version "0.0.2"
        :project 'hswick/jutsu.nlp
        :description "jutsu.nlp is meant to do natural language processing tasks such as word embedding."
        :url "https://github.com/hswick/jutsu.nlp"}
