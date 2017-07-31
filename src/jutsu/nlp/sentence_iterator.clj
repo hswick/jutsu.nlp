@@ -24,4 +24,4 @@
   ([pre-processor file] (FileSentenceIterator. pre-processor file)))
 
 (defn dir-iterator
-  ([path-to-dir] (file-sentence-iterator (clojure.java.io/file (absolute-path "test_dir")))))
+  ([path-to-dir] (file-sentence-iterator (clojure.java.io/file (absolute-path path-to-dir)))))
