@@ -1,6 +1,6 @@
 # jutsu.nlp
 
-Clojure library meant for word embedding using the deeplearning4j.
+Clojure library meant for word embedding using the deeplearning4j library under the hood.
 
 Word2Vec and Doc2Vec features are fully functional. Project is currently in a stable state.
 
@@ -48,7 +48,7 @@ To use jutsu.nlp:
   :layer-size 150})
   
 (require '[jutsu.nlp.sentence-iterator :as iter]
-		 '[jutsu.nlp.tokenization :as token])
+		     '[jutsu.nlp.tokenization :as token])
   
 ;;If you want to input a directory initialize like this
 (def w2v4 (nlp/word-2-vec
@@ -63,6 +63,8 @@ To use jutsu.nlp:
 # Dev
 
 Run `boot night` to startup nightlight and begin editing your project in a browser.
+
+Run `boot test-code` to run tests.
 
 ## License
 
