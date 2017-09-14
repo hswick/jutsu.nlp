@@ -48,7 +48,7 @@ To use jutsu.nlp:
   :layer-size 150})
   
 (require '[jutsu.nlp.sentence-iterator :as iter]
-		     '[jutsu.nlp.tokenization :as token])
+         '[jutsu.nlp.tokenization :as token])
   
 ;;If you want to input a directory initialize like this
 (def w2v4 (nlp/word-2-vec
