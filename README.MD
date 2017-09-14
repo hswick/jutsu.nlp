@@ -2,11 +2,19 @@
 
 Clojure library meant for word embedding using the deeplearning4j.
 
-Currently still in experimental stage and api subject to change.
+Word2Vec and Doc2Vec features are fully functional. Project is currently in a stable state.
+
+API is subject to change in future versions.
 
 Pull requests are welcome!
 
 # Usage
+
+To install add this to your dependencies:
+
+```clojure
+[hswick/jutsu.nlp "0.1.0"]
+```
 
 To use jutsu.nlp:
 ```clojure
