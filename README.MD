@@ -28,7 +28,7 @@ To use jutsu.nlp:
 (nlp/write-word-vectors w2v "word_vectors.csv")
 
 ;;Load a word2vec model from memory
-(def w2v-2 (nlp/read-word-vectors "word_vectors.csv"))
+(def w2v-2 (nlp/read-word-vectors (clojure.java.io/file "word_vectors.csv")))
 
 ;;If you want stopping and stemming initialize word2vec like this
 (nlp/word-2-vec 
