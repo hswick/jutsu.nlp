@@ -22,7 +22,7 @@ To use jutsu.nlp:
           '[jutsu.nlp.util :as util])
 
 ;;Configure your Word2Vec model
-(def w2v (nlp/word-2-vec "path/to/text-file" 
+(def w2v (nlp/word-2-vec "path/to/text-file"
   {:min-word-frequency 5;;You can also input an option map
    :iterations 1		  ;;To set certain parameters
    :layer-size 100
@@ -39,17 +39,17 @@ To use jutsu.nlp:
 (def w2v-2 (nlp/read-word-vectors (clojure.java.io/file "word_vectors.csv")))
 
 ;;If you want stopping and stemming initialize word2vec like this
-(nlp/word-2-vec 
+(require '[jutsu.nlp.sentence-iterator :as iter]
+         '[jutsu.nlp.tokenization :as token])
+
+(nlp/word-2-vec
  (iter/default-iterator (util/absolute-path "neuromancer.txt"))
  (token/default-tokenizer-factory (token/common-stemmer-preprocessor))
  {:min-word-frequency 6
   :stopwords (nlp/stop-words)
   :window-size 10
   :layer-size 150})
-  
-(require '[jutsu.nlp.sentence-iterator :as iter]
-         '[jutsu.nlp.tokenization :as token])
-  
+
 ;;If you want to input a directory initialize like this
 (def w2v4 (nlp/word-2-vec
             (iter/dir-iterator "path/to/dir")
