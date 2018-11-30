@@ -98,7 +98,7 @@
 
 ;;Doc2Vec
 (defn doc-2-vec [w2v document]
-  (let [sum (m/zeros 1 (m/columns (word-vectors w2v)))]
+  (let [sum (m/zeros 1 (long (m/columns (word-vectors w2v))))]
     (doseq [word (clojure.string/split document #" ")]
       (let [word-vector (get-word-vector w2v word)]
         (when (not (nil? word-vector))
